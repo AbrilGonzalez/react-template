@@ -42,6 +42,7 @@
   "devDependencies": {
     "cypress": "^10.3.0",
     "eslint": "^8.19.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-react": "^7.30.1",
     "eslinter": "^3.2.1",
     "husky": "^8.0.1",
