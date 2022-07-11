@@ -108,6 +108,8 @@ jobs:
           path: dist
       - name: Copy README.md to dist directory
         run: cp README.md dist/
+      - name: Copy Dockerfile to dist directory
+        run: cp Dockerfile dist/
       - name: Publish into release branch
         uses: s0/git-publish-subdir-action@develop
         env:
