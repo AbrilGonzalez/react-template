@@ -39,6 +39,7 @@ Configurations for Deploy ([source](https://github.com/marketplace/actions/ssh-r
     * SERVER_USER
     * SERVER_PASSWORD
 4. Copy the **public key** into server's file ```~/.ssh/authorized_keys```
+Configurations:
 
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
