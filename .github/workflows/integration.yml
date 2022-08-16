@@ -106,8 +106,12 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: Copy docs files and Dockerfile to dist directory
-        run: cp README.md dist/ && cp -r docs dist/ && cp Dockerfile dist/ 
+      - name: Copy required files to dist directory
+        run: cp README.md dist/ && 
+          cp .github dist/ &&
+          cp .gitignore dist/ &&
+          cp Dockerfile dist/ && 
+          cp -r docs dist/ 
       - name: Publish dist directory into release branch
         uses: s0/git-publish-subdir-action@develop
         env:
