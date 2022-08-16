@@ -108,9 +108,9 @@ jobs:
           path: dist
       - name: Copy required files to dist directory
         run: cp README.md dist/ && 
-          cp .github dist/ &&
           cp .gitignore dist/ &&
           cp Dockerfile dist/ && 
+          cp -r .github dist/ &&
           cp -r docs dist/ 
       - name: Publish dist directory into release branch
         uses: s0/git-publish-subdir-action@develop
