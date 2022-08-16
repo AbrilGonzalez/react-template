@@ -118,5 +118,5 @@ jobs:
           REPO: self
           BRANCH: release # The branch name where you want to push the assets
           FOLDER: dist # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           MESSAGE: "Release build ({sha})" # The commit message
