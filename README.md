@@ -15,7 +15,7 @@ This workflow uses at least 3 branches:
 ![workflow](./docs/workflow.png)
 
 ## Jobs
-This workflow runs the jobs:
+This workflow runs two jobs on push for the branches (staging and release)
 
 on staging branch push:
 1. **stop_prev**, stop previous pipelines
@@ -26,8 +26,20 @@ on staging branch push:
 6. **push**, generate automated push to release branch
 
 on release branch push:
+
 1. **stop_prev**, stop previous pipelines
 2. **deploy** to production env
+
+Configurations for Deploy ([source](https://github.com/marketplace/actions/ssh-remote-commands)):
+
+1. In local machine, create ssh key
+2. Copy the **private key** to github project's secrets _(Settings/Secrets/Actions)_
+3. Create repository secrets to:
+    * SERVER_HOST
+    * SERVER_USER
+    * SERVER_PASSWORD
+4. Copy the **public key** into server's file ```~/.ssh/authorized_keys```
+Configurations:
 
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
