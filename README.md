@@ -2,6 +2,8 @@
 
 [![Continuous Integration](https://github.com/emeraldigital/react-template/actions/workflows/integration.yml/badge.svg?branch=staging)](https://github.com/emeraldigital/react-template/actions/workflows/integration.yml)
 
+[![Continuous Deployment](https://github.com/emeraldigital/react-template/actions/workflows/deployment.yml/badge.svg)](https://github.com/emeraldigital/react-template/actions/workflows/deployment.yml)
+
 This project uses [create-react-app](https://create-react-app.dev/) as base to create a basic (but powerfull) CI/CD pipeline blank project with [github actions](https://docs.github.com/es/actions).
 
 ## Workflow
