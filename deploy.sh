@@ -2,6 +2,7 @@
 
 echo - Pull repo
 git pull origin release
+chmod 777 ./deploy.sh
 
 # Get the last commit log
 OUTPUT=$(git log -1 --oneline)
