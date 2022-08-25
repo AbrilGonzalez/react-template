@@ -26,3 +26,4 @@ docker stop react-template-prev
 echo 5. Run new container from build image
 echo  - docker run -itd --name react-app -p 8080:80 react-template:${VERSION}
 docker run -itd --name react-template --restart=always -p 8080:80 react-template:${VERSION}
+exit 0
