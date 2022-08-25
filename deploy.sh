@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo - Pull repo
+git pull origin release
+
 # Get the last commit log
 OUTPUT=$(git log -1 --oneline)
 # Get the version from commit log
