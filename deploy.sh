@@ -12,18 +12,10 @@ echo  - docker build -t react-template:${VERSION} .
 docker build -t react-template:${VERSION} .
 
 echo 2. Remove latest prev container
-echo  - docker rm -f react-template-prev
-docker rm -f react-template-prev
+echo  - docker rm -f react-template
+docker rm -f react-template
 
-echo 3. Rename current container to prev
-echo  - docker rename react-template react-template-prev
-docker rename react-template react-template-prev
-
-echo 4. Stop new current prev container
-echo  - docker stop react-template-prev
-docker stop react-template-prev
-
-echo 5. Run new container from build image
+echo 3. Run new container from build image
 echo  - docker run -itd --name react-app -p 8080:80 react-template:${VERSION}
 docker run -itd --name react-template --restart=always -p 8080:80 react-template:${VERSION}
 exit 0
