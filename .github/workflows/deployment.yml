@@ -26,6 +26,7 @@ jobs:
           port: 22
           script: |
             cd react-template
+            git pull origin release
             ./deploy.sh
 
 
