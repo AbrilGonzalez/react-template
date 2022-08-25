@@ -26,9 +26,6 @@ jobs:
           port: 22
           script: |
             cd react-template
-            git pull origin release
-            docker build -t react-app:{sha} .
-            docker rename react-app react-app-prev
-            docker run --name react-app -p 8080:80 react-app:{sha} .
+            sudo ./deploy.sh
 
 
