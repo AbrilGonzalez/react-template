@@ -1,9 +1,5 @@
 #!/bin/bash
 
-echo - Pull repo
-git pull origin release
-chmod 777 ./deploy.sh
-
 # Get the last commit log
 OUTPUT=$(git log -1 --oneline)
 # Get the version from commit log
@@ -22,4 +18,6 @@ docker rm -f react-template
 echo 3. Run new container from build image
 echo  - docker run -itd --name react-app -p 8080:80 react-template:${VERSION}
 docker run -itd --name react-template --restart=always -p 8080:80 react-template:${VERSION}
+
+echo Finish APP Deployment!!
 exit 0
