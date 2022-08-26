@@ -2,7 +2,7 @@ name: Continuous Deployment
 
 on:
   push:
-    branches: [release]
+    branches: [undefined]
 
 jobs:
   avoid_reduncy:
