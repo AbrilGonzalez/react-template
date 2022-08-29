@@ -186,6 +186,7 @@ Se ejecuta cuando hay un push en la rama `release` e incluye los `jobs`:
 - Procurar especificar las versiones de `actions` o `runners` que utilicemos.
 
 # Recursos
+[Presentación Taller](./docs/%5Bed.s.c%5D%20Automatizaci%C3%B3n%20CI%20y%20CD%20con%20github%20actions.pdf)
 
 [GitHub Actions Documentation - GitHub Docs](https://docs.github.com/es/actions)
 
