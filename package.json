@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build dist",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint './**/*.{js,jsx}'",
     "test": "react-scripts test",

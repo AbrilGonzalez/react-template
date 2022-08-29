@@ -1,0 +1,7 @@
+.gitignore 
+.dockerignore 
+.github/**
+deploy.sh 
+Dockerfile 
+README.md 
+docs/**
