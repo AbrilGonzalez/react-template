@@ -1,0 +1,141 @@
+name: Continuous Integration / Deployment
+on:
+  push:
+    branches: development
+
+jobs:
+  avoid_redundancy:
+    name: Kill previous runs
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Cancel previous started workflows
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+
+  linter_build:
+    needs: [avoid_redundancy]
+    name: Run linter and build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Pull from repo
+        uses: actions/checkout@v3.3.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up node version
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+        
+  test:
+    needs: [linter_build]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Pull from repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up node version
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+
+  e2e:
+    needs: [linter_build]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Pull from repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up node version
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: Install dependencies
+        run: npm ci
+      - name: E2E tests
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run start
+          wait-on: http://localhost:3000
+#      - name: Build
+#        run: npm run lint
+
+#     FIXME
+#      - name: Push
+#        uses: s0/git-publish-subdir-action@develop
+#        env:
+#          REPO: self
+#          BRANCH: master  # The branch name where you want to push the assets
+#          FOLDER: .       # The directory where your assets are generated
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          MESSAGE: "Automated build: ({sha}) {msg}" # The commit message
+   
+  deploy_emerald:
+    needs: [linter_build]
+    name: Deploy emerald
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EMERALD_HOST }}
+          username: ${{ secrets.EMERALD_USER }}
+          password: ${{ secrets.EMERALD_PASSWORD }}
+          port: 22
+          script: |
+            cd bara-monitoreo/bara-web-client/
+            git add . && git stash
+            git pull origin development
+            chmod 777 ./deploy.sh
+            ./deploy.sh
+
+  deploy_bara:
+    needs: [linter_build]
+    name: Deploy (Bara)
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install OpenVPN
+        run: |
+         sudo apt update
+         sudo apt install -y openvpn openvpn-systemd-resolved
+
+      - name: Create ovpn file from secrets
+        run: |
+          echo "${{ secrets.OVPN_JM }}" > client.ovpn
+
+      - name: Connect to VPN
+        uses: "kota65535/github-openvpn-connect-action@v2"
+        with:
+          config_file: ./client.ovpn
+
+      - name: Deploy app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.BARA_HOST }}
+          username: ${{ secrets.BARA_USER }}
+          password: ${{ secrets.BARA_PASSWORD }}
+          port: 22
+          script: |
+            cd bara-monitoreo/bara-web-client/
+            git add .
+            git stash
+            git pull origin development
+            chmod 777 ./deploy.sh
+            ./deploy.sh
