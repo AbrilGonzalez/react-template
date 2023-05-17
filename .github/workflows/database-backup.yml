@@ -26,7 +26,7 @@ jobs:
       - name: Postgres Dump Backup
         uses: tj-actions/pg-dump@v2.3
         with:
-          database_url: postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5432/postgres
+          database_url: postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:3002/postgres
           #"postgresql://postgres:postgres@localhost:5431/postgres" #${{secrets.POSTGRES_URL}}
           path: "backups/backup_postgres.sql" 
           options: "-O" 
