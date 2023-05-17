@@ -4,19 +4,31 @@ on:
     branches: staging #Validar rama donde se hara el push.
 
 jobs:
-  
-  backup:
-    # needs: [test, e2e]
-     runs-on: ubuntu-20.04
-     steps: 
-      - name: Backup Databases
-        uses: actions/checkout@v2
-      - name: Postgres Dump Backup
-        uses: tj-actions/pg-dump@v2.3
+   backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up PostgreSQL client
+        uses: azure/setup-pgcli@v1
         with:
-          database_url: "postgresql://postgres:postgres@localhost:5431/postgres" #${{secrets.POSTGRES_URL}}
-          path: "backups/backup_postgres.sql" 
-          options: "-O" 
+          version: 'latest'
+
+      - name: Create backup
+        run: |
+          pg_dump -U postgres -h db -p 5431 -d opstgres -F t -f /tmp/backup_postgresp.sql
+          
+#  backup:
+    # needs: [test, e2e]
+ #    runs-on: ubuntu-20.04
+  #   steps: 
+   #   - name: Backup Databases
+    #    uses: actions/checkout@v2
+     # - name: Postgres Dump Backup
+      #  uses: tj-actions/pg-dump@v2.3
+       # with:
+        #  database_url: "postgresql://postgres:postgres@localhost:5431/postgres" #${{secrets.POSTGRES_URL}}
+         # path: "backups/backup_postgres.sql" 
+          #options: "-O" 
           
       - name: Transfer backup to remote server
         uses: appleboy/scp-action@master
