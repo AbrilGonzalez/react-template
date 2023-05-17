@@ -3,19 +3,6 @@ on:
   push:
     branches: staging #Validar rama donde se hara el push.
 jobs:
-
-#  backup:
-  #  runs-on: ubuntu-latest
-
-   # steps:
-    #  - name: Set up PostgreSQL client
-    #    uses: azure/setup-pgcli@v1
-     #   with:
-      #    version: 'latest'
-
-      #- name: Create backup
-       # run: |
-        #  pg_dump -U postgres -h db -p 5431 -d postgres -F t -f /tmp/backup_postgresp.sql
           
    backup:
      #needs: [test, e2e]
@@ -28,7 +15,6 @@ jobs:
         with:
           database_url: postgres://postgres:postgres@localhost:54322/postgres
           #postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
-          #"postgresql://postgres:postgres@localhost:5431/postgres" #${{secrets.POSTGRES_URL}}
           path: "backups/backup_postgres.sql" 
           options: "-O" 
           
@@ -38,29 +24,8 @@ jobs:
           host: ${{secrets.EMERALD_HOST}}
           username: ${{secrets.EMERALD_USER}}
         #  key: ${{ secrets.SSH_PRIVATE_KEY}}
-        #  source: /tmp/backup.tar
-        #  target: /path/to/backup/backup.tar #
           source: /tmp/backup.sql
           target: /path/to/backup/backup.sql
         
           
-#  backup_database: #Validar en que servidor se va a generar el respaldo.
- #   needs: [test, e2e]
- #   name: Database backup
- #   runs-on: ubuntu-20.04
- #   steps:
- #     - name: Backup bd
- #       uses: appleboy/ssh-action@master
- #       with:
- #         host: ${{ secrets.EMERALD_HOST }}
- #         username: ${{ secrets.EMERALD_USER }}
- #         password: ${{ secrets.EMERALD_PASSWORD }}
- #         port: 22   #Validar puerto
- #         script: |
- #          cd bara-monitoreo/bara-web-client/  #Validar directorio en donde estara el backup.sh
- #          git add . && git stash
- #          git pull origin development
- #          chmod 777 ./backup.sh
- #          ./backup.sh
-        #Valida si se agregaran también jobs de deploy o si se manejaran por separado.  
           
