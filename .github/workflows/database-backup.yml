@@ -95,7 +95,7 @@ jobs:
           username: ${{secrets.EMERALD_USER}}
         #  key: ${{ secrets.SSH_PRIVATE_KEY}}
         #  source: /tmp/backup.tar
-        #  target: /path/to/backup/backup.tar
+        #  target: /path/to/backup/backup.tar #
           source: /tmp/backup.sql
           target: /path/to/backup/backup.sql
         
