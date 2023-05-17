@@ -15,7 +15,7 @@ jobs:
 
       - name: Create backup
         run: |
-          pg_dump -U postgres -h db -p 5431 -d opstgres -F t -f /tmp/backup_postgresp.sql
+          pg_dump -U postgres -h db -p 5431 -d postgres -F t -f /tmp/backup_postgresp.sql
           
 #  backup:
     # needs: [test, e2e]
