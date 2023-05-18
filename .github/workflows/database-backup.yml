@@ -10,7 +10,7 @@ jobs:
      steps: 
       - name: Backup Databases
         run: |
-         docker exec -t supabase-db  -U ${{secrets.EMERALD_USER}} pg_dump -d postgres -h 206.189.160.210 -p 5432 -F p 
+         docker exec -t supabase-db  -U ${{secrets.EMERALD_USER}} pg_dump -d postgres -h 206.189.160.210 -p 5431 -F p 
         # pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
         
         
