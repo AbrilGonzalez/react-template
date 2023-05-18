@@ -10,7 +10,8 @@ jobs:
      steps: 
       - name: Backup Databases
         run: |
-         pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
+         docker exec -t pg_dump -U ${{secrets.EMERALD_USER}} -d postgres -h 206.189.160.210 -p 5431 -F p 
+        # pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
         
         
     #    uses: actions/checkout@v2
