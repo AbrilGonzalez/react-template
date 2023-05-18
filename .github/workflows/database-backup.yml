@@ -10,8 +10,8 @@ jobs:
      steps: 
       - name: Backup Databases
         run: |
-         ssh ${{secrets.EMERALD_USER}}206.189.160.210  docker exec -t supabase-db pd_dump -U postgres  -d postgres > backup_postgres.sql #-h 206.189.160.210 -p 5431 -F p 
-         scp username@remote-server-ip:/path/to/backup.sql ./backup.sql
+         ssh -o StrictHostKeyChecking=no postgres@206.189.160.210  "docker exec -t supabase-db pd_dump -U postgres -d postgres > backup_postgres.sql" #-h 206.189.160.210 -p 5431 -F p 
+         scp postgres@206.189.160.210:/path/to/backup.sql ./backup.sql
        # pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
         
         
