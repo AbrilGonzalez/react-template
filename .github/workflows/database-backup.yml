@@ -10,34 +10,29 @@ jobs:
      steps: 
       - name: Backup Databases
         run: |
-         #ssh chmod 777 postgres@206.189.160.210  "docker exec -t supabase-db pg_dump -U postgres -d postgres > backup_postgres.sql" #-h 206.189.160.210 -p 5431 -F p 
-         #scp postgres@206.189.160.210:/path/to/backup.sql ./backup.sql
-         #docker exec -t supabase-db bash -c "pg_dump --dbname=postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres | psql -U postgres DB_NAME"
          echo docker exec -t supabase-db  pg_dump -U postgres  -d postgres -h 206.189.160.210  -p 5431 -F p > backup_postgres.sql
 
-       # pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
-        
-        
-    #    uses: actions/checkout@v2
+     #   pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
+     #    uses: actions/checkout@v2
      # - name: Postgres Dump Backup
      #   uses: tj-actions/pg-dump@v2.3
-      #  with:
+     #   with:
 
-      #    database_url: postresql://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
+     #     database_url: postresql://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
           #postgres://postgres:postgres@localhost:5431/db
           #postgres://postgres:${{secrets.POSTGRES_PWD}}@localhost:5431/db
           #postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
-      #    path: "backups/backup_postgres.sql" 
-      #    options: "-O" 
+     #     path: "backups/backup_postgres.sql" 
+     #     options: "-O" 
       
-      - name: Transfer backup to remote server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{secrets.EMERALD_HOST}}
-          username: ${{secrets.EMERALD_USER}}
-        #  key: ${{ secrets.SSH_PRIVATE_KEY}}
-          source: /tmp/backup.sql
-          target: /path/to/backup/backup.sql
+     # - name: Transfer backup to remote server
+     #   uses: appleboy/scp-action@master
+     #   with:
+     #     host: ${{secrets.EMERALD_HOST}}
+     #     username: ${{secrets.EMERALD_USER}}
+     #     key: ${{ secrets.SSH_PRIVATE_KEY}}
+     #     source: /tmp/backup.sql
+     #     target: /path/to/backup/backup.sql
           
       
         
