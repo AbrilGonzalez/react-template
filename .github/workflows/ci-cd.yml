@@ -1,7 +1,7 @@
 name: Continuous Integration / Deployment
 on:
   push:
-    branches: staging
+    branches: release #staging
     
 jobs:
   avoid_redundancy:
