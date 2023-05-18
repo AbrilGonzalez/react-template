@@ -9,17 +9,22 @@ jobs:
      runs-on: ubuntu-20.04
      steps: 
       - name: Backup Databases
-        uses: actions/checkout@v2
-      - name: Postgres Dump Backup
-        uses: tj-actions/pg-dump@v2.3
-        with:
-          database_url: postresql://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
+        run: |
+         pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
+        
+        
+    #    uses: actions/checkout@v2
+     # - name: Postgres Dump Backup
+     #   uses: tj-actions/pg-dump@v2.3
+      #  with:
+
+      #    database_url: postresql://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
           #postgres://postgres:postgres@localhost:5431/db
           #postgres://postgres:${{secrets.POSTGRES_PWD}}@localhost:5431/db
           #postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres
-          path: "backups/backup_postgres.sql" 
-          options: "-O" 
-          
+      #    path: "backups/backup_postgres.sql" 
+      #    options: "-O" 
+      
       - name: Transfer backup to remote server
         uses: appleboy/scp-action@master
         with:
@@ -28,6 +33,8 @@ jobs:
         #  key: ${{ secrets.SSH_PRIVATE_KEY}}
           source: /tmp/backup.sql
           target: /path/to/backup/backup.sql
+          
+      
         
           
           
