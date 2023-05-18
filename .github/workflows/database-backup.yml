@@ -13,7 +13,7 @@ jobs:
          #ssh chmod 777 postgres@206.189.160.210  "docker exec -t supabase-db pg_dump -U postgres -d postgres > backup_postgres.sql" #-h 206.189.160.210 -p 5431 -F p 
          #scp postgres@206.189.160.210:/path/to/backup.sql ./backup.sql
          #docker exec -t supabase-db bash -c "pg_dump --dbname=postgres://postgres:${{secrets.POSTGRES_PWD}}@206.189.160.210:5431/postgres | psql -U postgres DB_NAME"
-         docker exec -t supabase-db  pg_dump -U postgres  -d postgres -h 206.189.160.210  -p 5431 -F p > backup_postgres.sql
+         echo docker exec -t supabase-db  pg_dump -U postgres  -d postgres -h 206.189.160.210  -p 5431 -F p > backup_postgres.sql
 
        # pg_dump -U ${{ secrets.EMERALD_USER}} -h 206.189.160.210 -d postgres > backup.sql
         
