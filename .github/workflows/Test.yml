@@ -19,7 +19,7 @@ jobs:
       run:  npx playwright test login_first.spec.js &&
             npx playwright test login.spec.js &&
             npx playwright test Jugador.spec.js &&
-            npx playwright test auth_organizador.spec &&
+            npx playwright test auth_organizador.spec
             # npx playwright test deletes_organizador.spec.js &&
             # npx playwright test deletes_jugador.spec.js
       env:
