@@ -78,6 +78,10 @@ const p_SignIn=[
   },
 
 ]
+
+
+// Reset storage state for this file to avoid being authenticated
+test.use({ storageState: { cookies: [], origins: [] } });
   // Sign Up 
 p_SignUp.forEach(data => {
 test('Sign Up ' +" " + (data.name), async ({ page}) => {
