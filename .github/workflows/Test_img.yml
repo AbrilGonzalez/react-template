@@ -23,7 +23,7 @@ jobs:
              # npx playwright test deletes_organizador.spec.js &&
              # npx playwright test deletes_jugador.spec.js
         env:
-        BASE_URL: ${{secrets.BASE_URL}}
-        EMAIL_ORGANIZADOR: ${{secrets.EMAIL_ORGANIZADOR}}
-        EMAIL_JUGADOR: ${{secrets.EMAIL_JUGADOR}}
-        LOGIN_PWD: ${{secrets.LOGIN_PWD}}
+          BASE_URL: ${{secrets.BASE_URL}}
+          EMAIL_ORGANIZADOR: ${{secrets.EMAIL_ORGANIZADOR}}
+          EMAIL_JUGADOR: ${{secrets.EMAIL_JUGADOR}}
+          LOGIN_PWD: ${{secrets.LOGIN_PWD}}
