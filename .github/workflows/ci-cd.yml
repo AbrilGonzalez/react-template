@@ -1,7 +1,7 @@
 name: Continuous Integration / Deployment
-on:
-  push:
-    branches: release
+# on:
+#   push:
+#     branches: release
 
 jobs:
   dockerhub:
