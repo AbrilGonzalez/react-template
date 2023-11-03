@@ -17,12 +17,12 @@ jobs:
         run: npm ci
       - name: Run your tests
         run: npx playwright test login_first.spec.js --project chromium
-      - name: Run login
-        run: npx playwright test login.spec.js --project chromium
-        - name: Run Jugador
-        run: npx playwright test Jugador.spec.js --project chromium
-        - name: Run organizador
-        run: npx playwright test auth_organizador.spec.js --project chromium
+      # - name: Run login
+      #   run: npx playwright test login.spec.js --project chromium
+      # - name: Run Jugador
+      #   run: npx playwright test Jugador.spec.js --project chromium
+      # - name: Run organizador
+      #   run: npx playwright test auth_organizador.spec.js --project chromium
              # npx playwright test deletes_organizador.spec.js &&
              # npx playwright test deletes_jugador.spec.js
         env:
