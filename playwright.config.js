@@ -40,7 +40,7 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     // auth project
-    { name: 'setup', testMatch: /.login_first.js/ },
+    { name: 'setup', testMatch: /.login_first.spec.js/ },
 
     {
       name: 'chromium',
