@@ -28,7 +28,7 @@ yarn-error.log*
 /blob-report/
 # /playwright/.cache/
 ./tests-examples
-/test-results/
-/playwright-report/
+# /test-results/
+# /playwright-report/
 /blob-report/
-/playwright/.cache/
+# /playwright/.cache/
