@@ -4,14 +4,16 @@ dotenv.config({
 })
 const { test, expect } = require('@playwright/test');
 
-test('Login', async ({ page }) => {
-  await page.goto(process.env.BASE_URL + '/signin/')
-  await page.getByTestId('inputCorreo').fill(process.env.EMAIL_JUGADOR)
-  await page.getByTestId('inputPassword').fill(process.env.LOGIN_PWD)
-  await page.getByTestId('iniciarSesion').click()
-  await expect(page).toHaveURL(/.*success/)
-  await page.context().storageState({ path: './auth_j.json' })
-})
+// test('Login', async ({ page }) => {
+//   await page.goto(process.env.BASE_URL + '/signin/')
+//   await page.getByTestId('inputCorreo').fill(process.env.EMAIL_JUGADOR)
+//   await page.getByTestId('inputPassword').fill(process.env.LOGIN_PWD)
+//   await page.getByTestId('iniciarSesion').click()
+//   await expect(page).toHaveURL(/.*success/)
+//   await page.context().storageState({ path: './auth_j.json' })
+// })
+
+// test.use({ storageState: 'auth_j.json' });
 
 test('Inicio - Editar Perfil', async ({ browser }) => {
   const context = await browser.newContext({ storageState: 'auth_j.json' })

@@ -1,5 +1,6 @@
-const { test, expect } = require('@playwright/test');
-const { projects, timeout } = require('../playwright.config');
+// const { test, expect } = require('@playwright/test');
+// const { projects, timeout } = require('../playwright.config');
+import {test as setup, expect} from '@playwright/test';
 import { defineConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 
@@ -7,7 +8,7 @@ dotenv.config({
   path: '.env'
 })
 
-test('Login_jugador', async ({ page }) => {
+setup('Login_jugador', async ({ page }) => {
   await page.goto(process.env.BASE_URL + '/signin/')
   await page.getByTestId('inputCorreo').fill(process.env.EMAIL_JUGADOR)
   await page.getByTestId('inputPassword').fill(process.env.LOGIN_PWD)
@@ -18,7 +19,7 @@ test('Login_jugador', async ({ page }) => {
   // await browser.close();
 })
 
-test('Login_organizador', async ({ page }) => {
+setup('Login_organizador', async ({ page }) => {
   await page.goto(process.env.BASE_URL + '/signin/')
   await page.getByTestId('inputCorreo').fill(process.env.EMAIL_ORGANIZADOR)
   await page.getByTestId('inputPassword').fill(process.env.LOGIN_PWD)
