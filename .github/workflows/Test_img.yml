@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-        script: |
+        - script: |
            npm ci
            npx playwright test tests/auth.setup.js --project=chromium
            npx playwright test tests/Jugador.spec.js --project=chromium
