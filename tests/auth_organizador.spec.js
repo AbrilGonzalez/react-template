@@ -39,6 +39,12 @@ test('Jugadores', async ({ browser }) => {
   await expect(page.getByText('Recientes')).toBeVisible()
 })
 
+test.describe.serial('All',()=> {
+
+
+test.describe.serial('group Jugador',()=> {
+
+})
 
 test.describe.serial('group Equipos', () => {
   test('Login', async ({ page }) => {
@@ -243,3 +249,7 @@ test.describe.serial('Eliminar', () => {
     // ...
   })
 })
+
+//Deletes Here
+
+})//Group All
