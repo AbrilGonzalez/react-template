@@ -18,6 +18,8 @@ jobs:
       - name: Run your tests
         # run: 
         run: npx playwright test tests/auth.setup.js --project=chromium
+        run: npx playwright test tests/Jugador.spec.js --project=chromium
+
         # login_first.spec.js --project chromium
       # - name: Run login
       #   run: npx playwright test login.spec.js --project chromium
