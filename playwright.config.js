@@ -18,37 +18,32 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. *///
+  /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: true,
-    // trace: 'on',
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-  },
-  timeout: 90000,
-
-  expect: {
-    timeout: 15000,
+    trace: 'on',
   },
 
   /* Configure projects for major browsers */
   projects: [
     // auth project
-    { name: 'setup', testMatch: /.login_first.spec.js/ },
+    { name: 'setup', testMatch: /.login_first.js/ },
 
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
       dependencies: ['setup'],
     },
+
     
+   
 
     // {
     //   name: 'firefox',
@@ -77,7 +72,7 @@ module.exports = defineConfig({
     // },
     // {
     //   name: 'Google Chrome',
-    //   use: { ..devices['Desktop Chrome'], channel: 'chrome' },
+    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
 
@@ -88,3 +83,4 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
+
