@@ -13,7 +13,7 @@ const { test, expect } = require('@playwright/test');
 //   await page.context().storageState({ path: './auth_j.json' })
 // })
 
-// test.use({ storageState: 'auth_j.json' });
+//test.use({ storageState: 'auth_j.json' });
 
 test('Inicio - Editar Perfil', async ({ browser }) => {
   const context = await browser.newContext({ storageState: 'auth_j.json' })

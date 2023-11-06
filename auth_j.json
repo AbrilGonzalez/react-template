@@ -1,0 +1,14 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://caskr.app",
+      "localStorage": [
+        {
+          "name": "sb-ibvvnampnanunkozcgso-auth-token",
+          "value": "{\"access_token\":\"eyJhbGciOiJIUzI1NiIsImtpZCI6InQ0eEhvYUdPOVBGUEVCS1MiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjk5MzExMTIyLCJpYXQiOjE2OTkzMDc1MjIsImlzcyI6Imh0dHBzOi8vaWJ2dm5hbXBuYW51bmtvemNnc28uc3VwYWJhc2UuY28vYXV0aC92MSIsInN1YiI6Ijk4MmZhZGE1LWRmOWEtNGMzNy05ODI2LWQyMTdiYzgzZjI1ZiIsImVtYWlsIjoianRlc3RAZW1lcmFsZC5kZXYiLCJwaG9uZSI6IiIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIiwicHJvdmlkZXJzIjpbImVtYWlsIl19LCJ1c2VyX21ldGFkYXRhIjp7fSwicm9sZSI6ImF1dGhlbnRpY2F0ZWQiLCJhYWwiOiJhYWwxIiwiYW1yIjpbeyJtZXRob2QiOiJwYXNzd29yZCIsInRpbWVzdGFtcCI6MTY5OTMwNzUyMn1dLCJzZXNzaW9uX2lkIjoiMWZiNmNhYTEtNTFkYS00ZmY3LWIwYzMtMzRjYmI4MmM3NWVlIn0.AOwjXLigeNjsRltvkpuLFPIWnOAv11GsT2ZrDu5hPpc\",\"token_type\":\"bearer\",\"expires_in\":3600,\"expires_at\":1699311121,\"refresh_token\":\"PjUVz9TyaT4pEulFn_7P-A\",\"user\":{\"id\":\"982fada5-df9a-4c37-9826-d217bc83f25f\",\"aud\":\"authenticated\",\"role\":\"authenticated\",\"email\":\"jtest@emerald.dev\",\"email_confirmed_at\":\"2023-08-01T18:52:54.098642Z\",\"phone\":\"\",\"confirmed_at\":\"2023-08-01T18:52:54.098642Z\",\"last_sign_in_at\":\"2023-11-06T21:52:02.047454805Z\",\"app_metadata\":{\"provider\":\"email\",\"providers\":[\"email\"]},\"user_metadata\":{},\"identities\":[{\"id\":\"982fada5-df9a-4c37-9826-d217bc83f25f\",\"user_id\":\"982fada5-df9a-4c37-9826-d217bc83f25f\",\"identity_data\":{\"email\":\"jtest@emerald.dev\",\"sub\":\"982fada5-df9a-4c37-9826-d217bc83f25f\"},\"provider\":\"email\",\"last_sign_in_at\":\"2023-08-01T18:52:54.097288Z\",\"created_at\":\"2023-08-01T18:52:54.097324Z\",\"updated_at\":\"2023-08-01T18:52:54.097324Z\"}],\"created_at\":\"2023-08-01T18:52:54.095241Z\",\"updated_at\":\"2023-11-06T21:52:02.048796Z\"}}"
+        }
+      ]
+    }
+  ]
+}
