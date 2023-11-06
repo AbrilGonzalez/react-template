@@ -16,7 +16,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run your tests
-        run: npx playwright test --project chromium 
+        - PROJECT: ['chromium']
+        # run: 
+        script:
+        npx playwright test tests/auth.setup.js --project=chromium
+        npx playwright test tests/Jugador.spec.js --project=chromium
+        npx playwright test tests/auth_organizador.spec.js --project=chromium
+        npx playwright test tests/login.spec.js --project=chromium 
         # login_first.spec.js --project chromium
       # - name: Run login
       #   run: npx playwright test login.spec.js --project chromium
@@ -32,9 +38,9 @@ jobs:
           EMAIL_JUGADOR: ${{secrets.EMAIL_JUGADOR}}
           LOGIN_PWD: ${{secrets.LOGIN_PWD}}
           
-      # - uses: actions/upload-artifact@v3
-      #   if: always()
-      #   with:
-      #     name: playwright-report
-      #     path: playwright-report/
-      #     retention-days: 30
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
