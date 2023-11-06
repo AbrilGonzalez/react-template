@@ -13,12 +13,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Run your tests
-        run: npx playwright test tests/auth.setup.js --project=chromium
-        script: 
-          - npx playwright test tests/Jugador.spec.js --project=chromium
+        script: |
+           npm ci
+           npx playwright test tests/auth.setup.js --project=chromium
+           npx playwright test tests/Jugador.spec.js --project=chromium
+      # - name: Install dependencies
+      #   run: npm ci
+      # - name: Run your tests
+      #   run: npx playwright test tests/auth.setup.js --project=chromium
+      #   script: |
+      #     - npx playwright test tests/Jugador.spec.js --project=chromium
 
         # login_first.spec.js --project chromium
       # - name: Run login
