@@ -7,7 +7,8 @@ jobs:
     name: 'Playwright Tests'
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.39.0-jammy
+     # image: mcr.microsoft.com/playwright:v1.39.0-jammy
+      image: mcr.microsoft.com/playwright
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -16,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: npm install -g
       - name: Run your tests
-        run: npx playwright test # --project chromium 
+        run: npx playwright test --project chromium 
         # login_first.spec.js --project chromium
       # - name: Run login
       #   run: npx playwright test login.spec.js --project chromium
