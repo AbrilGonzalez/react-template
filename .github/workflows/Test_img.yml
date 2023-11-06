@@ -16,9 +16,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run your tests
-        # run: 
         run: npx playwright test tests/auth.setup.js --project=chromium
-        run: npx playwright test tests/Jugador.spec.js --project=chromium
+        script: 
+          - npx playwright test tests/Jugador.spec.js --project=chromium
 
         # login_first.spec.js --project chromium
       # - name: Run login

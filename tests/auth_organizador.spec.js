@@ -39,12 +39,6 @@ test('Jugadores', async ({ browser }) => {
   await expect(page.getByText('Recientes')).toBeVisible()
 })
 
-test.describe.serial('All',()=> {
-
-
-test.describe.serial('group Jugador',()=> {
-
-})
 
 test.describe.serial('group Equipos', () => {
   test('Login', async ({ page }) => {
@@ -213,6 +207,7 @@ test.describe.serial('group Equipos', () => {
     await page.getByTestId('registrarResultado').first().click()
     await expect(element.or(dialog)).toBeVisible()
   })
+
 })
 
 test.describe.serial('group Cancha', () => {
@@ -250,6 +245,3 @@ test.describe.serial('Eliminar', () => {
   })
 })
 
-//Deletes Here
-
-})//Group All
